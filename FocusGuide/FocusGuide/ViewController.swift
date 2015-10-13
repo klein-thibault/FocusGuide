@@ -10,16 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var moreInfosButton: UIButton!
+    @IBOutlet weak var buyButton: UIButton!
+
+    private var focusGuide = UIFocusGuide()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // We create a focus guide to fill the space between the more infos button and the buy button since it's not obvious for the
+        // focus engine which element should be focused.
+        self.view.addLayoutGuide(self.focusGuide)
+
+        // Left and top anchors
+        self.focusGuide.leftAnchor.constraintEqualToAnchor(self.buyButton.leftAnchor).active = true
+        self.focusGuide.topAnchor.constraintEqualToAnchor(self.moreInfosButton.topAnchor).active = true
+
+        // Width and height
+        self.focusGuide.widthAnchor.constraintEqualToAnchor(self.buyButton.widthAnchor).active = true
+        self.focusGuide.heightAnchor.constraintEqualToAnchor(self.moreInfosButton.heightAnchor).active = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: UIFocusElement Methods
 
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocusInContext(context, withAnimationCoordinator: coordinator)
+
+        guard let nextFocusedView = context.nextFocusedView else { return }
+
+        // When the focus engine focus the focus guide, we can set programmatically which element should be focused next.
+        switch nextFocusedView {
+        case self.moreInfosButton:
+            self.focusGuide.preferredFocusedView = self.buyButton
+
+        case self.buyButton:
+            self.focusGuide.preferredFocusedView = self.moreInfosButton
+
+        default:
+            self.focusGuide.preferredFocusedView = nil
+        }
+    }
 
 }
 
