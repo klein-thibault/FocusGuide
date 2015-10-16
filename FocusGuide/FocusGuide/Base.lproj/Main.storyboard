@@ -27,10 +27,10 @@
                                                 <animations/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-k1-Wan">
-                                                <rect key="frame" x="88" y="825" width="305" height="86"/>
+                                                <rect key="frame" x="99" y="825" width="282" height="86"/>
                                                 <animations/>
                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                <state key="normal" title="MORE INFOS"/>
+                                                <state key="normal" title="MORE INFO"/>
                                             </button>
                                         </subviews>
                                         <animations/>
@@ -71,7 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="buyButton" destination="fEH-BU-q0f" id="JyP-V5-3qo"/>
-                        <outlet property="moreInfosButton" destination="6iv-k1-Wan" id="Zdr-IW-XZz"/>
+                        <outlet property="moreInfoButton" destination="6iv-k1-Wan" id="5cV-r9-GgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
