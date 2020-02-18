@@ -31,3 +31,9 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+
+FocusGuide/.DS_Store
+
+.DS_Store
+
+FocusGuide/FocusGuide.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
