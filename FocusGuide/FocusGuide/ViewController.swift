@@ -23,18 +23,18 @@ class ViewController: UIViewController {
         self.view.addLayoutGuide(self.focusGuide)
 
         // Left and top anchors
-        self.focusGuide.leftAnchor.constraintEqualToAnchor(self.buyButton.leftAnchor).active = true
-        self.focusGuide.topAnchor.constraintEqualToAnchor(self.moreInfoButton.topAnchor).active = true
+        self.focusGuide.leftAnchor.constraint(equalTo: self.buyButton.leftAnchor).isActive = true
+        self.focusGuide.topAnchor.constraint(equalTo: self.moreInfoButton.topAnchor).isActive = true
 
         // Width and height
-        self.focusGuide.widthAnchor.constraintEqualToAnchor(self.buyButton.widthAnchor).active = true
-        self.focusGuide.heightAnchor.constraintEqualToAnchor(self.moreInfoButton.heightAnchor).active = true
+        self.focusGuide.widthAnchor.constraint(equalTo: self.buyButton.widthAnchor).isActive = true
+        self.focusGuide.heightAnchor.constraint(equalTo: self.moreInfoButton.heightAnchor).isActive = true
     }
 
     // MARK: UIFocusElement Methods
 
-    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        super.didUpdateFocusInContext(context, withAnimationCoordinator: coordinator)
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocus(in: context, with: coordinator)
 
         guard let nextFocusedView = context.nextFocusedView else { return }
 
